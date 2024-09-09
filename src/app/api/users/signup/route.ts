@@ -5,3 +5,12 @@ import bcryptjs from "bcryptjs";
 
 
 connect()
+
+export async function POST(request: NextRequest) {
+    try {
+        const reqBody = await request.json();
+        const {username, email, password} = reqBody;
+    } catch (error: any){
+        return NextResponse.status(500).json({message: error.message})
+    }
+}
